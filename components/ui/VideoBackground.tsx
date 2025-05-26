@@ -23,7 +23,7 @@ export default function VideoBackground() {
         loop
         muted={muted}
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-[-1]"
+        className="fixed inset-0 w-full h-full min-h-screen min-w-full object-cover z-[-1]"
       >
         <source
           src="https://automationalien.s3.us-east-1.amazonaws.com/Light+Blue+Music+Ocean+Waves+Inspirational+Video.mp4"

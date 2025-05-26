@@ -19,10 +19,10 @@ function DisplayCard({
   const cardContent = (
     <div
       className={cn(
-        "relative flex flex-col items-center justify-center select-none transition-all duration-700 hover:rotate-[-8deg] hover:scale-105",
+        "relative flex flex-col items-center justify-center select-none transition-all duration-700 hover:rotate-[-8deg] hover:scale-105 w-24 h-48 sm:w-[120px] sm:h-[360px] md:w-[200px] md:h-[600px]",
         className
       )}
-      style={{ width: 200, height: 600 }}
+      style={{}}
     >
       {/* Surfboard SVG background */}
       <svg width="200" height="600" viewBox="0 0 200 600" xmlns="http://www.w3.org/2000/svg" className="absolute left-0 top-0 w-full h-full z-0 pointer-events-none">
@@ -31,17 +31,35 @@ function DisplayCard({
       </svg>
       {/* Centered logo/icon, vertical orientation */}
       {React.isValidElement(icon) && icon.props && (icon.props as { alt?: string }).alt === 'Zapier logo' ? (
-        <div className="absolute left-1/2" style={{ top: 320, transform: 'translateX(-50%) rotate(90deg)' }}>
+        <div
+          className="absolute left-1/2"
+          style={{
+            top: '50%',
+            transform: 'translate(-50%, -50%) rotate(90deg)',
+            width: '70%',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <img
             src={(icon.props as { src: string }).src}
             alt={(icon.props as { alt: string }).alt}
-            width={70}
-            height={28}
-            style={{ objectFit: 'contain', filter: 'none' }}
+            width={80}
+            height={32}
+            style={{ objectFit: 'contain', filter: 'none', maxWidth: '100%' }}
           />
         </div>
       ) : (
-        <div className="absolute left-1/2" style={{ top: 270, transform: 'translateX(-50%) rotate(90deg)' }}>
+        <div
+          className="absolute left-1/2"
+          style={{
+            top: '50%',
+            transform: 'translate(-50%, -50%) rotate(90deg)',
+            width: '60%',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           {icon}
         </div>
       )}
@@ -107,7 +125,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
   const displayCards = cards || defaultCards;
 
   return (
-    <div className="flex flex-row gap-6 justify-center opacity-100 animate-in fade-in-0 duration-700">
+    <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center w-full px-2">
       {displayCards.map((cardProps, index) => (
         <DisplayCard key={index} {...cardProps} />
       ))}
