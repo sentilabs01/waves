@@ -125,7 +125,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
   const displayCards = cards || defaultCards;
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center w-full px-2">
+    <div className="flex flex-row gap-2 sm:gap-4 md:gap-6 justify-center items-end w-full px-2 overflow-x-auto">
       {displayCards.map((cardProps, index) => (
         <DisplayCard key={index} {...cardProps} />
       ))}
